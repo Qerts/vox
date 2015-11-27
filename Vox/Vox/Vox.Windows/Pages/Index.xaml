@@ -6,6 +6,71 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Name="StoryboardExpandButtons">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="buttonRecord">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="buttonStop">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="buttonPause">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="StoryboardCollapseButtons">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="buttonRecord">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Visible</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="buttonStop">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="buttonPause">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.5">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="StoryboardExpandBars"/>
+        <Storyboard x:Name="StoryboardCollapseBars"/>
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
@@ -29,15 +94,21 @@
                 <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="5*"/>
             </Grid.ColumnDefinitions>
-            <Viewbox Grid.Column="1" Margin="0" Grid.Row="1">
-                <Button x:Name="buttonRecord" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ComboBoxItemSelectedPointerOverBackgroundThemeBrush}" Tapped="buttonRecord_Tapped"/>
-            </Viewbox>
-            <Viewbox Grid.Column="1" Margin="0" Grid.Row="1">
-                <Button x:Name="buttonStop" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ToggleSwitchCurtainBackgroundThemeBrush}" Tapped="buttonStop_Tapped"/>
-            </Viewbox>
-            <Viewbox Grid.Column="1" Margin="0" Grid.Row="2">
-                <Button x:Name="buttonPause" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ToggleButtonPointerOverBackgroundThemeBrush}" Tapped="buttonPause_Tapped"/>
-            </Viewbox>
+            <Grid x:Name="GridButtons" Margin="0" Grid.RowSpan="2" Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+                <Viewbox Margin="0" HorizontalAlignment="Right" Width="341">
+                    <Button x:Name="buttonRecord" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ComboBoxItemSelectedPointerOverBackgroundThemeBrush}" Tapped="buttonRecord_Tapped"/>
+                </Viewbox>
+                <Viewbox Margin="0" HorizontalAlignment="Right" Width="341">
+                    <Button x:Name="buttonStop" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ToggleSwitchCurtainBackgroundThemeBrush}" Tapped="buttonStop_Tapped" Visibility="Collapsed"/>
+                </Viewbox>
+                <Viewbox Margin="0" HorizontalAlignment="Right" Height="149" VerticalAlignment="Bottom" Width="341" Grid.Row="1">
+                    <Button x:Name="buttonPause" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ToggleButtonPointerOverBackgroundThemeBrush}" Tapped="buttonPause_Tapped" Visibility="Collapsed"/>
+                </Viewbox>
+            </Grid>
         </Grid>
 
     </Grid>
