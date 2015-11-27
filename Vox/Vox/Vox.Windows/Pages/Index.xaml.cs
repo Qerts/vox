@@ -26,5 +26,20 @@ namespace Vox.Pages
         {
             this.InitializeComponent();
         }
+
+        private void buttonRecord_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonStop_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonPause_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }

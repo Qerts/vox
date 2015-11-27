@@ -18,7 +18,27 @@
             <ColumnDefinition Width="14*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid x:Name="gridMain" Grid.Column="1" Margin="0" Grid.Row="1"/>
+        <Grid x:Name="gridMain" Grid.Column="1" Margin="0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="5*"/>
+            </Grid.ColumnDefinitions>
+            <Viewbox Grid.Column="1" Margin="0" Grid.Row="1">
+                <Button x:Name="buttonRecord" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ComboBoxItemSelectedPointerOverBackgroundThemeBrush}" Tapped="buttonRecord_Tapped"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Margin="0" Grid.Row="1">
+                <Button x:Name="buttonStop" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ToggleSwitchCurtainBackgroundThemeBrush}" Tapped="buttonStop_Tapped"/>
+            </Viewbox>
+            <Viewbox Grid.Column="1" Margin="0" Grid.Row="2">
+                <Button x:Name="buttonPause" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="200" Height="200" Background="{ThemeResource ToggleButtonPointerOverBackgroundThemeBrush}" Tapped="buttonPause_Tapped"/>
+            </Viewbox>
+        </Grid>
 
     </Grid>
 </Page>
