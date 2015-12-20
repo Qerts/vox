@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Base\FileManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\Player.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Base\Recorder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\AudioEncodingFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\View.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Settings.cs" />

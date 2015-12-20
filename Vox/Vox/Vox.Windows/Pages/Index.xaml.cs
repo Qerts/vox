@@ -26,8 +26,7 @@ namespace Vox.Pages
     public sealed partial class Index : Page
     {
         private bool _isPaused = false;
-        private Recorder _recorder = null;
-        private FileManager _fileManager = null;
+        private Core _core = null;
 
         public Index()
         {
@@ -37,8 +36,7 @@ namespace Vox.Pages
 
         private void Index_Loaded(object sender, RoutedEventArgs e)
         {
-            _recorder = new Recorder();
-            _fileManager = new FileManager();
+            _core = new Core();
         }
 
         private void SetView(View view)
@@ -73,7 +71,7 @@ namespace Vox.Pages
         {
             SetView(View.Recording);
             Task.Run(async () => {
-                await _recorder.StartRecording();
+                await _core.Recorder.StartRecording();
             });
             
         }
@@ -81,18 +79,20 @@ namespace Vox.Pages
         private void buttonStop_Tapped(object sender, TappedRoutedEventArgs e)
         {
             SetView(View.Recorded);
-            Task.Run(async () =>
+            
+            try
             {
-                try
+                Task.Run(async () =>
                 {
-                    await _recorder.StopRecording();
-                    SetView(View.Files);
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            });
+                    await _core.Recorder.StopRecording();
+                });
+                SetView(View.Files);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            
             
         }
 
@@ -102,13 +102,13 @@ namespace Vox.Pages
             {
                 _isPaused = false;
                 //set pause button style to tapped
-                _recorder.ResumeRecording();
+                _core.Recorder.ResumeRecording();
             }
             else
             {
                 _isPaused = true;
                 //set pause button style to no tapped
-                _recorder.PauseRecording();
+                _core.Recorder.PauseRecording();
             }
         }
     }
