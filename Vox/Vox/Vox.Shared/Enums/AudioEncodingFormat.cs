@@ -8,5 +8,9 @@ namespace Vox.Enums
     {
         mp3 = 0,        
         wav = 1,
+        avi = 2,
+        m4a = 3,
+        wma = 4,
+        wmv = 5,
     }
 }

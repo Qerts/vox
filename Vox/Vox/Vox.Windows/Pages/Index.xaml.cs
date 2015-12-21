@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Vox.Base;
 using Vox.Enums;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -25,9 +24,6 @@ namespace Vox.Pages
     /// </summary>
     public sealed partial class Index : Page
     {
-        private bool _isPaused = false;
-        private Core _core = null;
-
         public Index()
         {
             this.InitializeComponent();
@@ -36,80 +32,75 @@ namespace Vox.Pages
 
         private void Index_Loaded(object sender, RoutedEventArgs e)
         {
-            _core = new Core();
+            SetView(View.Init);
+            //TODO check if there are any files loaded
+            //TODO check if there are any effects loaded
         }
 
         private void SetView(View view)
         {
             switch (view)
             {
-                case View.ReadyToRecord:
-                    StoryboardCollapseButtons.Begin();
+                case View.Init:
+                    //init positions
                     break;
-                case View.Recording:
-                    StoryboardExpandButtons.Begin();
+                case View.ShowRightBar:
+                    throw new NotImplementedException();
                     break;
-                case View.Recorded:
-                    StoryboardCollapseButtons.Begin();
+                case View.HideRightBar:
+                    throw new NotImplementedException();
                     break;
-                case View.Playing:
+                case View.ShowLeftBar:
+                    throw new NotImplementedException();
                     break;
-                case View.Transforming:
+                case View.HideLeftBar:
+                    throw new NotImplementedException();
                     break;
-                case View.Files:
-                    StoryboardExpandBars.Begin();
+                case View.ShowBottomBar:
+                    throw new NotImplementedException();
                     break;
-                case View.NoFiles:
-                    StoryboardCollapseBars.Begin();
+                case View.HideBottomBar:
+                    throw new NotImplementedException();
+                    break;
+                case View.ShowTopPanel:
+                    throw new NotImplementedException();
+                    break;
+                case View.HodeTopPanel:
+                    throw new NotImplementedException();
+                    break;
+                case View.ShowPurchasePanel:
+                    throw new NotImplementedException();
+                    break;
+                case View.HidePurchasePanel:
+                    throw new NotImplementedException();
+                    break;
+                case View.ShowRecordButton:
+                    throw new NotImplementedException();
+                    break;
+                case View.ShowStopButton:
+                    throw new NotImplementedException();
                     break;
                 default:
-                    throw new NotImplementedException();
+                    break;
             }
         }
 
         private void buttonRecord_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            SetView(View.Recording);
-            Task.Run(async () => {
-                await _core.Recorder.StartRecording();
-            });
-            
+            SetView(View.ShowStopButton);
+            Core.Core.Instance.Recorder.StartRecording();
         }
 
         private void buttonStop_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            SetView(View.Recorded);
-            
-            try
-            {
-                Task.Run(async () =>
-                {
-                    await _core.Recorder.StopRecording();
-                });
-                SetView(View.Files);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            
-            
+            SetView(View.ShowRecordButton);
+            Core.Core.Instance.Recorder.StopRecording();
         }
 
         private void buttonPause_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            if (_isPaused)
-            {
-                _isPaused = false;
-                //set pause button style to tapped
-                _core.Recorder.ResumeRecording();
-            }
-            else
-            {
-                _isPaused = true;
-                //set pause button style to no tapped
-                _core.Recorder.PauseRecording();
-            }
+            //TODO modify pause button to checkbutton
+            Core.Core.Instance.Recorder.PauseRecording();
         }
     }
 }

@@ -1,20 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
-using Windows.Storage.Pickers;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace Vox.Base
+namespace Vox.Core.WorkingClasses
 {
-    /// <summary>
-    /// This class serves for manipulation with audio files.
-    /// </summary>
     public class FileManager
     {
+
+        
         public void Load()
-        {
+        {            
             throw new NotImplementedException();
         }
 

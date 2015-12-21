@@ -6,11 +6,8 @@ using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage.Streams;
 
-namespace Vox.Base
+namespace Vox.Core.WorkingClasses
 {
-    /// <summary>
-    /// This class serves for recording sounds.
-    /// </summary>
     public class Recorder
     {
         private MediaCapture _capturer;
@@ -58,7 +55,7 @@ namespace Vox.Base
             }
 
             _audioStream = new InMemoryRandomAccessStream();
-            await _capturer.StartRecordToStreamAsync(profile, _audioStream);                     
+            await _capturer.StartRecordToStreamAsync(profile, _audioStream);
         }
 
         public async Task PauseRecording()
@@ -83,7 +80,7 @@ namespace Vox.Base
             {
 
                 throw;
-            }    
+            }
         }
 
         internal void ResumeRecording()

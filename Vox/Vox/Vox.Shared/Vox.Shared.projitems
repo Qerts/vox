@@ -15,12 +15,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Base\FileManager.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Base\Player.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Base\Recorder.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Core.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\EffectStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\FileManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\Player.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\Recorder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\Settings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\SoundHolder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\WorkingClasses\SoundProcessor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\AudioEncodingFormat.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Enums\View.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Settings.cs" />
   </ItemGroup>
 </Project>
