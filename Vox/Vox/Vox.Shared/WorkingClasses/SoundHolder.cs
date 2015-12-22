@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Vox.Core.WorkingClasses
+namespace Vox.WorkingClasses
 {
-    public class EffectStorage
+    public class SoundHolder
     {
     }
 }

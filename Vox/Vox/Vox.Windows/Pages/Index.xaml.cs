@@ -75,10 +75,12 @@ namespace Vox.Pages
                     throw new NotImplementedException();
                     break;
                 case View.ShowRecordButton:
-                    throw new NotImplementedException();
+                    buttonRecord.Visibility = Visibility.Visible;
+                    buttonStop.Visibility = Visibility.Collapsed;
                     break;
                 case View.ShowStopButton:
-                    throw new NotImplementedException();
+                    buttonStop.Visibility = Visibility.Visible;
+                    buttonRecord.Visibility = Visibility.Collapsed;
                     break;
                 default:
                     break;
@@ -88,19 +90,19 @@ namespace Vox.Pages
         private void buttonRecord_Tapped(object sender, TappedRoutedEventArgs e)
         {
             SetView(View.ShowStopButton);
-            Core.Core.Instance.Recorder.StartRecording();
+            Core.Properties.Recorder.StartRecording();
         }
 
         private void buttonStop_Tapped(object sender, TappedRoutedEventArgs e)
         {
             SetView(View.ShowRecordButton);
-            Core.Core.Instance.Recorder.StopRecording();
+            Core.Properties.Recorder.StopRecording();
         }
 
         private void buttonPause_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //TODO modify pause button to checkbutton
-            Core.Core.Instance.Recorder.PauseRecording();
+            Core.Properties.Recorder.PauseRecording();
         }
     }
 }

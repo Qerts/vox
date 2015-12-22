@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Vox.Core.WorkingClasses;
+using Vox.WorkingClasses;
 
-namespace Vox.Core
+namespace Vox
 {
     public class Core
     {
         #region Singleton
         private static Core _instance = null;
-        public static Core Instance
+        public static Core Properties
         {
             get
             {

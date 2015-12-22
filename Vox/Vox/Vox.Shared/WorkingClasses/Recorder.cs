@@ -6,7 +6,7 @@ using Windows.Media.Capture;
 using Windows.Media.MediaProperties;
 using Windows.Storage.Streams;
 
-namespace Vox.Core.WorkingClasses
+namespace Vox.WorkingClasses
 {
     public class Recorder
     {
@@ -36,25 +36,41 @@ namespace Vox.Core.WorkingClasses
 
         public async Task StartRecording()
         {
-            MediaCaptureInitializationSettings settings = new MediaCaptureInitializationSettings();
-            settings.StreamingCaptureMode = StreamingCaptureMode.Audio;
+            MediaCaptureInitializationSettings settings = new MediaCaptureInitializationSettings()
+            {
+                StreamingCaptureMode = StreamingCaptureMode.Audio,
+            };
+
             await _capturer.InitializeAsync(settings);
 
-
             MediaEncodingProfile profile = null;
+
             switch (Settings.AudioFormat)
             {
                 case Enums.AudioEncodingFormat.mp3:
                     profile = MediaEncodingProfile.CreateMp3(Settings.AudioQuality);
                     break;
                 case Enums.AudioEncodingFormat.wav:
-                    profile = MediaEncodingProfile.CreateWav(Settings.AudioQuality);
+                    profile = MediaEncodingProfile.CreateMp3(Settings.AudioQuality);
+                    break;
+                case Enums.AudioEncodingFormat.avi:
+                    profile = MediaEncodingProfile.CreateMp3(Settings.AudioQuality);
+                    break;
+                case Enums.AudioEncodingFormat.m4a:
+                    profile = MediaEncodingProfile.CreateMp3(Settings.AudioQuality);
+                    break;
+                case Enums.AudioEncodingFormat.wma:
+                    profile = MediaEncodingProfile.CreateMp3(Settings.AudioQuality);
+                    break;
+                case Enums.AudioEncodingFormat.wmv:
+                    profile = MediaEncodingProfile.CreateMp3(Settings.AudioQuality);
                     break;
                 default:
                     throw new NotImplementedException();
             }
 
             _audioStream = new InMemoryRandomAccessStream();
+
             await _capturer.StartRecordToStreamAsync(profile, _audioStream);
         }
 
@@ -78,7 +94,6 @@ namespace Vox.Core.WorkingClasses
             }
             catch (Exception ex)
             {
-
                 throw;
             }
         }

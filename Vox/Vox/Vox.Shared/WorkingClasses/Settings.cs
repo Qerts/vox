@@ -4,11 +4,11 @@ using System.Text;
 using Vox.Enums;
 using Windows.Media.MediaProperties;
 
-namespace Vox.Core.WorkingClasses
+namespace Vox.WorkingClasses
 {
     public class Settings
     {
-        private static string _path = Windows.Storage.KnownFolders.MusicLibrary.Path;
+        private static string _path = Windows.Storage.KnownFolders.Playlists.Path;
         public static string Path { get { return _path; } set { _path = value; } }
 
         private static AudioEncodingQuality _audioQuality = AudioEncodingQuality.Auto;

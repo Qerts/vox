@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace Vox.Core.WorkingClasses
+namespace Vox.WorkingClasses
 {
     public class FileManager
     {
