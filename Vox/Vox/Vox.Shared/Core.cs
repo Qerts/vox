@@ -23,6 +23,13 @@ namespace Vox
         #endregion
 
         #region Members
+        private WinRTLogger.Logger _logger = null;
+        public WinRTLogger.Logger Logger
+        {
+            get { return _logger; }
+            set { _logger = value; }
+        }
+
         private Player _player = null;
         public Player Player
         {
@@ -73,6 +80,7 @@ namespace Vox
         #region Constructor
         private Core()
         {
+            _logger = new WinRTLogger.Logger(new Uri("C:\\", UriKind.RelativeOrAbsolute), "TheVox.log");
             _player = new Player();
             _recorder = new Recorder();
             _settings = new Settings();

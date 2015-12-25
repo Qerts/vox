@@ -87,22 +87,22 @@ namespace Vox.Pages
             }
         }
 
-        private void buttonRecord_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void buttonRecord_Tapped(object sender, TappedRoutedEventArgs e)
         {
             SetView(View.ShowStopButton);
-            Core.Properties.Recorder.StartRecording();
+            await Core.Properties.Recorder.StartRecording();
         }
 
-        private void buttonStop_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void buttonStop_Tapped(object sender, TappedRoutedEventArgs e)
         {
             SetView(View.ShowRecordButton);
-            Core.Properties.Recorder.StopRecording();
+            await Core.Properties.Recorder.StopRecording();
         }
 
-        private void buttonPause_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void buttonPause_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //TODO modify pause button to checkbutton
-            Core.Properties.Recorder.PauseRecording();
+            await Core.Properties.Recorder.PauseRecording();
         }
     }
 }

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoxTestingWindowsUI", "VoxT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoxTestingWIndowsPhoneUI", "VoxTestingWIndowsPhoneUI\VoxTestingWIndowsPhoneUI.csproj", "{9A08F46B-4169-4389-80C7-2285F11D9078}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinRTLogger", "WinRTLogger\WinRTLogger.csproj", "{77163FF1-4BF9-40A3-A1CC-688B82C779EB}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Vox\Vox.Shared\Vox.Shared.projitems*{cc28ca47-f1a3-42d9-b3ee-293f2355e679}*SharedItemsImports = 4
@@ -114,6 +116,22 @@ Global
 		{9A08F46B-4169-4389-80C7-2285F11D9078}.Release|x64.Build.0 = Release|Any CPU
 		{9A08F46B-4169-4389-80C7-2285F11D9078}.Release|x86.ActiveCfg = Release|Any CPU
 		{9A08F46B-4169-4389-80C7-2285F11D9078}.Release|x86.Build.0 = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|ARM.Build.0 = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|x64.Build.0 = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Debug|x86.Build.0 = Debug|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|ARM.ActiveCfg = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|ARM.Build.0 = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|x64.ActiveCfg = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|x64.Build.0 = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|x86.ActiveCfg = Release|Any CPU
+		{77163FF1-4BF9-40A3-A1CC-688B82C779EB}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

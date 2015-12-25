@@ -24,12 +24,13 @@ namespace Vox.WorkingClasses
                 StorageFile file = await folder.CreateFileAsync("name123." + Settings.AudioFormat, CreationCollisionOption.ReplaceExisting);
                 using (Stream writeStream = await file.OpenStreamForWriteAsync())
                 {
-                    writeStream.Read(buffer, 0, buffer.Length);
+                    //writeStream.Read(buffer, 0, buffer.Length);
+                    writeStream.Write(buffer, 0, buffer.Length);
                 }
             }
             catch (Exception ex)
             {
-
+                
                 throw;
             }
         }

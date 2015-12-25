@@ -17,9 +17,7 @@ namespace Vox.WorkingClasses
 
         public Recorder()
         {
-            _capturer = new MediaCapture();
-            _capturer.Failed += _capturer_Failed;
-            _capturer.RecordLimitationExceeded += _capturer_RecordLimitationExceeded;
+            
 
             _fileManager = new FileManager();
         }
@@ -36,13 +34,6 @@ namespace Vox.WorkingClasses
 
         public async Task StartRecording()
         {
-            MediaCaptureInitializationSettings settings = new MediaCaptureInitializationSettings()
-            {
-                StreamingCaptureMode = StreamingCaptureMode.Audio,
-            };
-
-            await _capturer.InitializeAsync(settings);
-
             MediaEncodingProfile profile = null;
 
             switch (Settings.AudioFormat)
@@ -69,7 +60,18 @@ namespace Vox.WorkingClasses
                     throw new NotImplementedException();
             }
 
+            
             _audioStream = new InMemoryRandomAccessStream();
+            _capturer = new MediaCapture();
+            _capturer.Failed += _capturer_Failed;
+            _capturer.RecordLimitationExceeded += _capturer_RecordLimitationExceeded;
+            MediaCaptureInitializationSettings settings = new MediaCaptureInitializationSettings()
+            {
+                StreamingCaptureMode = StreamingCaptureMode.Audio,
+            };
+
+            await _capturer.InitializeAsync(settings);
+            
 
             await _capturer.StartRecordToStreamAsync(profile, _audioStream);
         }
@@ -84,6 +86,8 @@ namespace Vox.WorkingClasses
             try
             {
                 await _capturer.StopRecordAsync();
+                _capturer.Dispose();
+
                 using (DataReader dataReader = new DataReader(_audioStream.GetInputStreamAt(0)))
                 {
                     await dataReader.LoadAsync((uint)_audioStream.Size);
