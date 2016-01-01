@@ -17,8 +17,6 @@ namespace Vox.WorkingClasses
 
         public Recorder()
         {
-            
-
             _fileManager = new FileManager();
         }
 

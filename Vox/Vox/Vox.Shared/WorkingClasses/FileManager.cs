@@ -21,7 +21,8 @@ namespace Vox.WorkingClasses
             try
             {
                 StorageFolder folder = await StorageFolder.GetFolderFromPathAsync(Settings.Path);
-                StorageFile file = await folder.CreateFileAsync("name123." + Settings.AudioFormat, CreationCollisionOption.ReplaceExisting);
+                StorageFile file = await folder.CreateFileAsync($"recorded {DateTime.Now.Year}-{DateTime.Now.Month}-{DateTime.Now.Day} {DateTime.Now.Hour}-{DateTime.Now.Minute}-{DateTime.Now.Second}.{Settings.AudioFormat}", CreationCollisionOption.ReplaceExisting);
+                //StorageFile file = await folder.CreateFileAsync("name123." + Settings.AudioFormat, CreationCollisionOption.ReplaceExisting);
                 using (Stream writeStream = await file.OpenStreamForWriteAsync())
                 {
                     //writeStream.Read(buffer, 0, buffer.Length);
